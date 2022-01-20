@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [bmi, setBmi] = useState(false);
+  const [showBmiForm, setShowBmiForm] = useState(false);
+
+  const handleShowForm = () => {
+    setShowBmiForm(!showBmiForm);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {bmi ? (
+        <h1>BMI</h1>
+      ) : showBmiForm ? (
+        <h3 onClick={handleShowForm}>Form</h3>
+      ) : (
+        <h2 onClick={handleShowForm}>AddCard</h2>
+      )}
     </div>
   );
 }
